@@ -43,7 +43,7 @@ module.exports.getPopulationByState = (state) => {
     const result = {
         'state': state,
         'pop': totalPop
-    }
+    };
     // print the result and return
     console.log(result);
     return result;

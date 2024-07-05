@@ -1,19 +1,13 @@
 const data = require('./zips.json');
 
 module.exports.lookupByZipCode = (zip) => {
-    // make sure zip is provided
-    if (zip) {
-        // print info
-        console.log(`Look up by zip code (${zip})`);
-        // create result obejct
-        const result = data.find(item => item._id === zip);
-        // print result and return
-        console.log(result);
-        return result;
-    }
-    // not found, print and return undefined
-    console.log(undefined);
-    return undefined;
+    // print info
+    console.log(`Look up by zip code (${zip})`);
+    // create result obejct
+    const result = data.find(item => item._id === zip);
+    // print result and return
+    console.log(result);
+    return result;
 };
 
 module.exports.lookupByCityState = (city, state) => {
@@ -36,6 +30,22 @@ module.exports.lookupByCityState = (city, state) => {
 };
 
 module.exports.getPopulationByState = (state) => {
-
+    // print info
+    console.log(`Get population by state (${state})`);
+    // create the result obejct for return
+    let result = {
+        'state': state,
+        'pop': 0
+    }
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i];
+        if (item.state === state) {
+            // found, adds up to pop data
+            result.pop += item.pop;
+        }
+    }
+    // print the result and return
+    console.log(result);
+    return result;
 };
 

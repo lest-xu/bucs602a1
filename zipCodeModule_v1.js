@@ -34,7 +34,7 @@ module.exports.lookupByCityState = (city, state) => {
         const item = data[i];
         if (item.city === city && item.state === state) {
             // found, add to city data
-            result.data.push({'city': item.city, 'state': item.state});
+            result.data.push({ 'city': item.city, 'state': item.state });
         }
     }
     // print the result and return
@@ -43,6 +43,22 @@ module.exports.lookupByCityState = (city, state) => {
 };
 
 module.exports.getPopulationByState = (state) => {
-
+    // print info
+    console.log(`Get population by state (${state})`);
+    // create the result obejct for return
+    let result = {
+        'state': state,
+        'pop': 0
+    }
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i];
+        if (item.state === state) {
+            // found, adds up to pop data
+            result.pop += item.pop;
+        }
+    }
+    // print the result and return
+    console.log(result);
+    return result;
 };
 

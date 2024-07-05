@@ -20,7 +20,7 @@ module.exports.lookupByCityState = (city, state) => {
         'data': []
     }
     // filter by city and state
-    const filtered = data.filter(i => i.city === city && i.state === state);
+    const filtered = data.filter(i => i.city === city && i.state === state).map(i => i);
     // assign filtered data to result
     result.data = filtered;
 
@@ -37,6 +37,7 @@ module.exports.getPopulationByState = (state) => {
         'state': state,
         'pop': 0
     }
+    // data.reduce()
     for (let i = 0; i < data.length; i++) {
         const item = data[i];
         if (item.state === state) {

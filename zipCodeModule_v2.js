@@ -32,18 +32,17 @@ module.exports.lookupByCityState = (city, state) => {
 module.exports.getPopulationByState = (state) => {
     // print info
     console.log(`Get population by state (${state})`);
-    // create the result obejct for return
-    let result = {
-        'state': state,
-        'pop': 0
-    }
-    // data.reduce()
-    for (let i = 0; i < data.length; i++) {
-        const item = data[i];
+    // get total pop by state
+    const totalPop = data.reduce((pop, item) => {
         if (item.state === state) {
-            // found, adds up to pop data
-            result.pop += item.pop;
+            return pop + item.pop;
         }
+        return pop;
+    }, 0);
+    // create the result obejct for return
+    const result = {
+        'state': state,
+        'pop': totalPop
     }
     // print the result and return
     console.log(result);

@@ -6,13 +6,13 @@ const cities = new ZipCodeEmitter();
 
 // handler for lookupByZipCode
 cities.on('lookupByZipCode', result => {
-    console.log('Event lookupByZipCode raised!'.blue, result);
+    console.log('Event lookupByZipCode raised!\n'.blue, result);
 });
 
 
 // handler1 for lookupByCityState
 cities.on('lookupByCityState', result => {
-    console.log('Event lookupByCityState raised! (Handler1)'.blue, result);
+    console.log('Event lookupByCityState raised! (Handler1)\n'.blue, result);
 });
 
 // handler2 for lookupByCityState
@@ -26,7 +26,7 @@ cities.on('lookupByCityState', result => {
 
 // handler for getPopulationByState
 cities.on('getPopulationByState', result => {
-    console.log('Event getPopulationByState raised!'.blue, result);
+    console.log('Event getPopulationByState raised!\n'.blue, result);
 });
 
 // using the ZipCodeEmitter object, do the following operations

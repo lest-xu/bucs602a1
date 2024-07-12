@@ -20,7 +20,7 @@ module.exports.lookupByCityState = (city, state) => {
         'data': []
     }
     // filter by city and state
-    const filtered = data.filter(i => i.city === city && i.state === state).map(i => i);
+    const filtered = data.filter(i => i.city === city && i.state === state).map(i => ({zip: i._id, pop: i.pop}));
     // assign filtered data to result
     result.data = filtered;
 
